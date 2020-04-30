@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1000.0" style="-fx-background-color: white;" stylesheets="@css/theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.homepageController">
+   <children>
+      <Pane fx:id="LoadingPane" prefHeight="710.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/Loading.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <VBox fx:id="MainPane" prefHeight="710.0" prefWidth="1000.0" visible="false">
+         <children>
+            <Pane prefHeight="131.0" prefWidth="1000.0">
+               <children>
+                  <Text fx:id="greeting" layoutX="27.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Good Evening, Uda'le">
+                     <font>
+                        <Font name="System Italic" size="34.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
+            <HBox prefHeight="270.0" prefWidth="1000.0">
+               <children>
+                  <Pane prefHeight="259.0" prefWidth="333.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ddffb8" height="156.0" layoutX="32.0" layoutY="57.0" onMouseClicked="#gotoMyRequests" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="roundedRect_Dashboard" width="269.0" />
+                        <Text layoutX="126.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Have">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="userRequestsInTreatment" layoutX="126.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" textAlignment="CENTER" wrappingWidth="79.78515625">
+                           <font>
+                              <Font size="31.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="71.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="requests in treatment" wrappingWidth="190.13623046875">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="259.0" prefWidth="333.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bafeff" height="156.0" layoutX="32.0" layoutY="57.0" onMouseClicked="#gotoMyRequests" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="roundedRect_Dashboard" width="269.0" />
+                        <Text layoutX="114.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You've sent">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="userTotalRequest" layoutX="127.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" textAlignment="CENTER" wrappingWidth="70.98095703125">
+                           <font>
+                              <Font size="31.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="127.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="requests">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="paneForIT" prefHeight="259.0" prefWidth="333.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd8ba" height="156.0" layoutX="32.0" layoutY="57.0" onMouseClicked="#gotoRequestTreatment" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="roundedRect_Dashboard" width="269.0" />
+                        <Text fx:id="UserNeedToTreat" layoutX="157.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#">
+                           <font>
+                              <Font size="31.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="35.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Request waiting for your action">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <Pane prefHeight="348.0" prefWidth="1000.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1e9ff" height="26.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+                  <TableView fx:id="table5last" layoutX="156.0" layoutY="35.0" prefHeight="285.0" prefWidth="689.0">
+                     <columns>
+                        <TableColumn fx:id="IDtable" prefWidth="146.0" resizable="false" text="ID" />
+                        <TableColumn fx:id="EXsitingConditiontable" prefWidth="206.0" resizable="false" text="Existing condition" />
+                        <TableColumn fx:id="Statustable" prefWidth="154.0" resizable="false" text="Status" />
+                        <TableColumn fx:id="Stagetable" prefWidth="182.0" resizable="false" text="Stage" />
+                     </columns>
+                  </TableView>
+                  <Text layoutX="440.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your last 10 requests">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

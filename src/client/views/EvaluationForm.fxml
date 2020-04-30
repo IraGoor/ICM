@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1000.0" stylesheets="@css/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.EvaluationReportController">
+   <children>
+      <HBox prefHeight="710.0" prefWidth="1000.0">
+         <children>
+            <Pane>
+               <children>
+                  <VBox prefHeight="710.0" prefWidth="420.0" style="-fx-background-color: #fffaee;">
+                     <children>
+                        <Pane prefHeight="44.0" prefWidth="437.0" style="-fx-background-color: #80b5e7;">
+                           <children>
+                              <Text fx:id="requestNumberTXT" layoutX="120.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Request ">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="665.0" prefWidth="420.0">
+                           <children>
+                              <AnchorPane prefHeight="665.0" prefWidth="423.0">
+                                 <children>
+                                    <Text fx:id="idText" layoutX="30.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Request ID :">
+                                       <font>
+                                          <Font name="System Bold Italic" size="13.0" />
+                                       </font></Text>
+                                    <Text fx:id="requestID" layoutX="30.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" />
+                                    <TextArea fx:id="existingCondition" editable="false" layoutX="10.0" layoutY="258.0" prefHeight="100.0" prefWidth="400.0" wrapText="true" />
+                                    <Text layoutX="10.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Existing Condition:" wrappingWidth="145.99999731127173">
+                                       <font>
+                                          <Font name="System Bold Italic" size="13.0" />
+                                       </font></Text>
+                                    <TextArea fx:id="descripitionsTextArea" editable="false" layoutX="10.0" layoutY="397.0" prefHeight="100.0" prefWidth="400.0" wrapText="true" />
+                                    <Text layoutX="10.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remarks:">
+                                       <font>
+                                          <Font name="System Bold Italic" size="13.0" />
+                                       </font></Text>
+                                    <Text fx:id="msg" fill="#0e2eff" layoutX="38.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" visible="false">
+                                       <font>
+                                          <Font name="System Bold" size="38.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="10.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In Charge:" wrappingWidth="73.63037107139826">
+                                       <font>
+                                          <Font name="System Bold Italic" size="13.0" />
+                                       </font></Text>
+                                    <TextField fx:id="inchargeTF" editable="false" layoutX="10.0" layoutY="528.0" prefHeight="100.0" prefWidth="400.0" />
+                                    <Label layoutX="230.0" layoutY="45.0" text="DepartmentID:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold Italic" size="13.0" />
+                                       </font></Label>
+                                    <Text fx:id="departmentID" layoutX="230.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" textAlignment="CENTER" />
+                                    <Text fx:id="idText1" layoutX="30.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requester's UserName:">
+                                       <font>
+                                          <Font name="System Bold Italic" size="13.0" />
+                                       </font></Text>
+                                    <Text fx:id="requestNameLabel" layoutX="30.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" />
+                                    <Text fx:id="idText2" layoutX="230.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Due Date:" visible="false" />
+                                    <Text fx:id="dueDateLabel" layoutX="230.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" visible="false">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <AnchorPane fx:id="rightPane" prefHeight="710.0" prefWidth="585.0">
+               <children>
+                  <Pane fx:id="Pane_Form" prefHeight="710.0" prefWidth="593.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80b5e7" height="44.0" layoutX="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="583.0" />
+                        <Label alignment="CENTER" layoutX="204.0" layoutY="5.0" text="Evalutaion Report" textAlignment="CENTER">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="20.0" layoutY="173.0" prefHeight="24.0" prefWidth="265.0" text="Required change location and description:">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="20.0" layoutY="287.0" prefHeight="20.0" prefWidth="99.0" text="Expected result:">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="20.0" layoutY="400.0" prefHeight="24.0" prefWidth="74.0" text="Constraints:">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="SbmtEvlBtn" layoutX="231.0" layoutY="611.0" mnemonicParsing="false" onAction="#SbmtEvlBtnClick" prefHeight="35.0" prefWidth="134.0" styleClass="primary" text="Submit Evaluation" />
+                        <Label alignment="CENTER" layoutX="20.0" layoutY="516.0" prefHeight="20.0" prefWidth="115.0" text="Time Evaluation:">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="timeEvlBox" layoutX="21.0" layoutY="543.0" prefHeight="24.0" prefWidth="146.0" />
+                        <TextArea fx:id="reqChngTXT" layoutX="20.0" layoutY="206.0" prefHeight="71.0" prefWidth="544.0" wrapText="true" />
+                        <TextArea fx:id="expResTXT" layoutX="20.0" layoutY="309.0" prefHeight="83.0" prefWidth="544.0" wrapText="true" />
+                        <TextArea fx:id="cnstrntTXT" layoutX="20.0" layoutY="424.0" prefHeight="83.0" prefWidth="544.0" wrapText="true" />
+                        <TitledPane fx:id="titledPane" animated="false" layoutX="20.0" layoutY="74.0" prefHeight="92.0" prefWidth="544.0" styleClass="info" text="Waiting for your action">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Text fx:id="titledPane_Text" fill="#0600d9" layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back to Evaluation stage. Seems like you need to fix your last Evaluation-Report.">
+                                       <font>
+                                          <Font name="System Italic" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="titledPane_daysLeft" fill="#0600d9" layoutX="13.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Days Left">
+                                       <font>
+                                          <Font name="System Italic" size="13.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <Button fx:id="btnRequestExtension" layoutX="418.0" layoutY="611.0" mnemonicParsing="false" onAction="#requestExtension" prefHeight="32.0" prefWidth="146.0" text="Request Extension" />
+                        <Label alignment="CENTER" layoutX="11.0" layoutY="161.0" prefHeight="24.0" prefWidth="17.0" text="*" textFill="#ff0606">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="272.0" prefHeight="38.0" prefWidth="13.0" text="*" textFill="#ff0606">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="12.0" layoutY="505.0" prefHeight="30.0" prefWidth="17.0" text="*" textFill="#ff0606">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="Pane_locked" layoutX="10.0" prefHeight="720.0" prefWidth="583.0" visible="false">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80b5e7" height="45.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="583.0" />
+                        <Label alignment="CENTER" layoutX="194.0" layoutY="7.0" text="Evalutaion Report" textAlignment="CENTER">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Text fx:id="txt_locked" layoutX="143.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This stage is waiting for In-charge action">
+                           <font>
+                              <Font name="System Italic" size="17.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btnAnswerStageExtensionRequest" layoutX="173.0" layoutY="437.0" mnemonicParsing="false" onAction="#requestExtension" prefHeight="32.0" prefWidth="229.0" styleClass="primary" text="Answer Stage Extention Request" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

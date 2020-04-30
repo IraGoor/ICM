@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.ViewRequestController">
+   <children>
+      <Pane fx:id="LoadingPane" prefHeight="710.0" prefWidth="1000.0" visible="false">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/Loading.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <HBox fx:id="MainPane" prefHeight="711.0" prefWidth="1000.0">
+         <children>
+            <VBox prefHeight="711.0" prefWidth="420.0">
+               <children>
+                  <HBox prefHeight="30.0" prefWidth="417.0">
+                     <children>
+                        <TextField fx:id="searchBoxTF" prefHeight="30.0" prefWidth="307.0" promptText="Search..." />
+                        <MenuButton mnemonicParsing="false" prefHeight="32.0" prefWidth="209.0" text="Filter Options">
+                           <items>
+                              <MenuItem fx:id="clearBtn" mnemonicParsing="false" onAction="#clearBtnClicked" text="Clear Filter" />
+                              <MenuItem fx:id="activeStatusBtn" mnemonicParsing="false" onAction="#activeStatusBtn" text="Active Status" />
+                              <MenuItem fx:id="userWaiting" mnemonicParsing="false" onAction="#userWaitingClicked" text="Waiting for your response" />
+                           </items>
+                        </MenuButton>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="table" prefHeight="686.0" prefWidth="250.0">
+                    <columns>
+                      <TableColumn fx:id="colId" prefWidth="108.0" resizable="false" text="ID" />
+                      <TableColumn fx:id="colExisitCond" prefWidth="173.0" resizable="false" text="Exisiting Condition" />
+                        <TableColumn fx:id="colStatus" prefWidth="137.0" resizable="false" text="Status" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <AnchorPane prefHeight="711.0" prefWidth="425.0">
+               <children>
+                  <Text fx:id="idText" layoutX="32.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Request ID :">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Text>
+                  <Text fx:id="requestID" layoutX="48.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" />
+                  <TextArea fx:id="existingCondition" editable="false" layoutX="29.0" layoutY="147.0" prefHeight="51.0" prefWidth="466.0" wrapText="true" />
+                  <Text layoutX="29.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Existing Condition:" wrappingWidth="145.99999731127173">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Text>
+                  <TextArea fx:id="descripitionsTextArea" editable="false" layoutX="29.0" layoutY="399.0" prefHeight="59.0" prefWidth="466.0" wrapText="true" />
+                  <Text layoutX="29.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remarks:">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Text>
+                  <Text layoutX="32.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In Charge:" visible="false" wrappingWidth="73.63037107139826" />
+                  <TextField fx:id="inchargeTF" editable="false" layoutX="33.0" layoutY="388.0" prefHeight="31.0" prefWidth="218.0" visible="false" />
+                  <Label layoutX="228.0" layoutY="13.0" text="Department:">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Label>
+                  <Text fx:id="departmentID" layoutX="242.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" />
+                  <Text fx:id="idText1" layoutX="29.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requester's Name:">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Text>
+                  <Text fx:id="requestNameLabel" layoutX="42.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" />
+                  <Text fx:id="idText2" layoutX="229.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Due Date:">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Text>
+                  <Text fx:id="dueDateLabel" layoutX="240.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" />
+                  <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="525.0" layoutY="14.0" onMouseClicked="#refrshBtn" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons/icon_refresh.png" />
+                     </image>
+                  </ImageView>
+                  <HBox fx:id="stageHBox" layoutX="33.0" layoutY="497.0" prefHeight="80.0" prefWidth="481.0" visible="false">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="stage1" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/stages/stage%20(1).png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="stage2" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/stages/stage%20(2).png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="stage3" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/stages/stage%20(3).png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="stage4" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/stages/stage%20(4).png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="stage5" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/stages/stage%20(5).png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <Text fx:id="progressViewLabel" layoutX="4.0" layoutY="578.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a request to review progress" textAlignment="CENTER" wrappingWidth="554.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="wantedChangeText" editable="false" layoutX="29.0" layoutY="229.0" prefHeight="51.0" prefWidth="466.0" wrapText="true" />
+                  <Text layoutX="29.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wanted Change:" wrappingWidth="145.99999731127173">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="reasonText" editable="false" layoutX="29.0" layoutY="311.0" prefHeight="59.0" prefWidth="466.0" wrapText="true" />
+                  <Text layoutX="29.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason:" wrappingWidth="145.99999731127173">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="confirmRequest" disable="true" layoutX="46.0" layoutY="613.0" mnemonicParsing="false" onAction="#confirmRequestClicked" prefHeight="32.0" prefWidth="156.0" styleClass="bg_color1" stylesheets="@css/theme.css" text="Confirm Clousre" />
+                  <Text fx:id="msg" fill="#0e2eff" layoutX="38.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font name="System Bold" size="38.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="finishedStatus" layoutX="228.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="267.13671875">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</Pane>

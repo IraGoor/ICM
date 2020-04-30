@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1000.0" stylesheets="@css/theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.ReportGenerateController">
+   <children>
+      <HBox prefHeight="521.0" prefWidth="1000.0">
+         <children>
+            <AnchorPane fx:id="reportTypePane" prefHeight="200.0" prefWidth="333.0" style="-fx-background-color: #d5f6ff;" styleClass="roundedRect_Reports">
+               <children>
+                  <RadioButton fx:id="radioActivty" layoutX="95.0" layoutY="113.0" mnemonicParsing="false" onAction="#chooseReportType" text="Activtiy">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="ReportType" />
+                     </toggleGroup>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="radioPerformences" layoutX="97.0" layoutY="174.0" mnemonicParsing="false" onAction="#chooseReportType" text="Performences" toggleGroup="$ReportType">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="radioDelays" layoutX="98.0" layoutY="236.0" mnemonicParsing="false" onAction="#chooseReportType" text="Delays" toggleGroup="$ReportType">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </RadioButton>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="-75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/reports/report_step1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </AnchorPane>
+            <AnchorPane fx:id="datesPane" prefHeight="200.0" prefWidth="333.0" style="-fx-background-color: #fff0db;" styleClass="roundedRect_Reports">
+               <children>
+                  <DatePicker fx:id="fromDatePic" layoutX="55.0" layoutY="114.0" />
+                  <DatePicker fx:id="toDatePic" layoutX="60.0" layoutY="225.0" />
+                  <Button fx:id="btnSelectDates" layoutX="164.0" layoutY="350.0" mnemonicParsing="false" onAction="#ChooseDates" prefHeight="32.0" prefWidth="103.0" styleClass="primary" text="Confirm" />
+                  <Button fx:id="btnChangeType1" layoutX="20.0" layoutY="350.0" mnemonicParsing="false" onAction="#changeType" prefHeight="32.0" prefWidth="120.0" styleClass="warning" text="Change Type" />
+                  <Label layoutX="60.0" layoutY="94.0" text="From" />
+                  <Label layoutX="62.0" layoutY="205.0" text="To" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="-75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/reports/report_step2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="buffer" fitHeight="200.0" fitWidth="294.0" layoutX="36.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@img/Loading.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </AnchorPane>
+            <AnchorPane fx:id="submitPane" prefHeight="200.0" prefWidth="333.0" style="-fx-background-color: #e0ffdd;" styleClass="roundedRect_Reports">
+               <children>
+                  <TextArea fx:id="reportInfo" editable="false" layoutX="29.0" layoutY="107.0" prefHeight="200.0" prefWidth="200.0" />
+                  <Button fx:id="btnSubmit" layoutX="120.0" layoutY="351.0" mnemonicParsing="false" onAction="#submit" prefHeight="32.0" prefWidth="153.0" styleClass="primary" text="Confirm and Submit" />
+                  <Button fx:id="btnChangeDates" layoutX="27.0" layoutY="351.0" mnemonicParsing="false" onAction="#changeDates" styleClass="warning" text="Go Back" />
+                  <Label layoutX="30.0" layoutY="85.0" prefHeight="18.0" prefWidth="114.0" text="Your Report" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="73.0" layoutY="-75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/reports/report_step3.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </AnchorPane>
+         </children>
+         <VBox.margin>
+            <Insets top="70.0" />
+         </VBox.margin>
+      </HBox>
+      <AnchorPane prefHeight="121.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Button fx:id="btnViewReports" layoutX="477.0" layoutY="49.0" mnemonicParsing="false" onAction="#viewReports" styleClass="primary" text="View Previous Reports" />
+            <ImageView fx:id="imgArrow" fitHeight="63.0" fitWidth="425.0" layoutX="285.0" layoutY="-287.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@img/reports/report_arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="91.0" fitWidth="86.0" layoutX="359.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/reports/reports_icon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

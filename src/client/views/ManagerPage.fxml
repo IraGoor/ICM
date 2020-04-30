@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1000.0" stylesheets="@css/theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.ManagerViewPage">
+   <children>
+      <Pane fx:id="LoadingPane" prefHeight="710.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/Loading.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <HBox fx:id="MainPane" visible="false">
+         <children>
+            <VBox prefHeight="711.0" prefWidth="440.0">
+               <children>
+                  <TextField fx:id="searchBoxTF" prefHeight="31.0" prefWidth="218.0" promptText="Search..." />
+                  <TableView fx:id="table" prefHeight="727.0" prefWidth="180.0">
+                    <columns>
+                      <TableColumn fx:id="colId" editable="false" prefWidth="113.0" resizable="false" text="Worker ID " />
+                      <TableColumn fx:id="colfullname" editable="false" prefWidth="164.0" resizable="false" text="Full name" />
+                        <TableColumn fx:id="colPostion" editable="false" prefWidth="162.0" resizable="false" text="Position" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <AnchorPane fx:id="rightPane" prefHeight="711.0" prefWidth="560.0">
+               <children>
+                  <Text layoutX="31.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Worker ID" wrappingWidth="82.99999731127173" />
+                  <Text layoutX="33.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :" wrappingWidth="73.63037107139826" />
+                  <Text layoutX="30.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname :" />
+                  <Text fx:id="WorkerID" layoutX="173.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="30.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name : " />
+                  <Text layoutX="34.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Position :" wrappingWidth="73.63037107139826" />
+                  <TextField fx:id="nameTf" editable="false" layoutX="171.0" layoutY="115.0" prefWidth="218.0" />
+                  <TextField fx:id="SurenameTf" editable="false" layoutX="171.0" layoutY="172.0" prefWidth="218.0" />
+                  <TextField fx:id="EmailTf" editable="false" layoutX="170.0" layoutY="238.0" prefHeight="31.0" prefWidth="218.0" />
+                  <TextField fx:id="PositionTf" editable="false" layoutX="171.0" layoutY="302.0" prefHeight="31.0" prefWidth="218.0" />
+                  <Button fx:id="commitee2Btn" disable="true" layoutX="290.0" layoutY="540.0" mnemonicParsing="false" onAction="#commitee2BtnClicked" prefHeight="32.0" prefWidth="240.0" styleClass="primary" text="Appoint Commitee member 2 " />
+                  <Button fx:id="SupervisorBtn" disable="true" layoutX="30.0" layoutY="540.0" mnemonicParsing="false" onAction="#SupervisorBtnClicked" prefHeight="32.0" prefWidth="240.0" styleClass="primary" text="Appoint Supervisor " />
+                  <Button fx:id="chairmanBtn" disable="true" layoutX="30.0" layoutY="490.0" mnemonicParsing="false" onAction="#chairmanBtnClicked" prefHeight="32.0" prefWidth="240.0" styleClass="primary" text="Appoint Chairman " />
+                  <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="513.0" layoutY="14.0" onMouseClicked="#refrshBtn" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons/icon_refresh.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="commitee1Btn" disable="true" layoutX="290.0" layoutY="490.0" mnemonicParsing="false" onAction="#commitee1BtnClicked" prefHeight="32.0" prefWidth="240.0" styleClass="primary" text="Appoint Commitee member 1 " />
+                  <VBox layoutX="59.0" layoutY="404.0" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <CheckBox fx:id="libraryCheckbox" disable="true" mnemonicParsing="false" onAction="#systemSelectionClicked" text="Library" />
+                        <CheckBox fx:id="labsCheckbox" disable="true" mnemonicParsing="false" onAction="#systemSelectionClicked" text="Labs" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="420.0" layoutY="404.0" prefHeight="69.0" prefWidth="115.0">
+                     <children>
+                        <CheckBox fx:id="classComputersCheckbox" disable="true" mnemonicParsing="false" onAction="#systemSelectionClicked" prefWidth="107.0" text="Class Computers" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="300.0" layoutY="404.0" prefHeight="50.0" prefWidth="115.0">
+                     <children>
+                        <CheckBox fx:id="collageCheckbox" disable="true" mnemonicParsing="false" onAction="#systemSelectionClicked" text="Collage website" />
+                        <CheckBox fx:id="computerFarmCheckbox" disable="true" mnemonicParsing="false" onAction="#systemSelectionClicked" text="Computer Farm" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="169.0" layoutY="404.0" prefHeight="50.0" prefWidth="124.0">
+                     <children>
+                        <CheckBox fx:id="moodleCheckbox" disable="true" mnemonicParsing="false" onAction="#systemSelectionClicked" text="Moodle" />
+                        <CheckBox fx:id="informationStationCheckbox" disable="true" mnemonicParsing="false" onAction="#systemSelectionClicked" text="Information Station" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="deleteMember" disable="true" layoutX="155.0" layoutY="627.0" mnemonicParsing="false" onAction="#deleteMembr" prefWidth="240.0" styleClass="warning" text="Remove Role" />
+                  <Text fx:id="msg" layoutX="12.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</Pane>

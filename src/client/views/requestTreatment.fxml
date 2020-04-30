@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1000.0" stylesheets="@css/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.requestTreatmentController">
+   <children>
+      <Pane fx:id="LoadingPane" prefHeight="711.0" prefWidth="1000.0" visible="false">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/Loading.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="MainPane" prefHeight="711.0" prefWidth="1000.0">
+         <children>
+            <HBox>
+               <children>
+                  <VBox prefHeight="711.0" prefWidth="417.0">
+                     <children>
+                        <HBox prefHeight="30.0" prefWidth="417.0">
+                           <children>
+                              <TextField fx:id="searchBoxTF" prefHeight="37.0" prefWidth="207.0" promptText="Search..." />
+                              <MenuButton mnemonicParsing="false" prefHeight="32.0" prefWidth="209.0" text="Filter Options">
+                                <items>
+                                    <MenuItem fx:id="clearBtn" mnemonicParsing="false" onAction="#clearBtnClicked" text="Clear Filter" />
+                                  <MenuItem fx:id="activeStatusBtn" mnemonicParsing="false" onAction="#activeStatusBtn" text="Active Status" />
+                                  <MenuItem fx:id="supervisorWaiting" mnemonicParsing="false" onAction="#supervisorWaitingClicked" text="Waiting to Supervisor" />
+                                   <MenuItem fx:id="canceledFilter" mnemonicParsing="false" onAction="#canceledFilterClicked" text="Canceled" />
+                                   <MenuItem fx:id="waitingFilter" mnemonicParsing="false" onAction="#waitingFilterClicked" text="Waiting for response" />
+                                   <MenuItem fx:id="suspendedFilter" mnemonicParsing="false" onAction="#suspendedFilterClicked" text="Suspended Requests" />
+                                </items>
+                              </MenuButton>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="table" prefHeight="684.0" prefWidth="417.0">
+                          <columns>
+                            <TableColumn fx:id="colId" prefWidth="61.0" resizable="false" text="ID" />
+                            <TableColumn fx:id="colIntitator" prefWidth="107.0" resizable="false" text="Initiator " />
+                              <TableColumn fx:id="colStage" prefWidth="130.0" resizable="false" text="Stage" />
+                              <TableColumn fx:id="colStatus" prefWidth="121.0" resizable="false" text="Status" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane fx:id="rightPane_selectRequest" prefHeight="710.0" prefWidth="579.0" visible="false">
+                           <children>
+                              <Text fx:id="custom_msg" layoutX="40.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a request please" textAlignment="CENTER" wrappingWidth="508.2119140625">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="rightPane_requestTreatment" prefHeight="711.0" prefWidth="579.0">
+                           <children>
+                              <Text fx:id="idText" layoutX="33.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Request ID :">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="requestID" layoutX="45.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" />
+                              <Button fx:id="submitBtn" disable="true" layoutX="86.0" layoutY="620.0" mnemonicParsing="false" onAction="#submitBtnClicked" prefHeight="59.0" prefWidth="153.0" styleClass="primary" text="Submit Update" visible="false" />
+                              <TextArea fx:id="existingCondition" editable="false" layoutX="36.0" layoutY="151.0" prefHeight="51.0" prefWidth="466.0" wrapText="true" />
+                              <Text layoutX="36.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Existing Condition:" wrappingWidth="145.99999731127173">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Text>
+                              <TextArea fx:id="descripitionsTextArea" editable="false" layoutX="36.0" layoutY="388.0" prefHeight="51.0" prefWidth="466.0" wrapText="true" />
+                              <Text layoutX="39.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remarks:">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Text>
+                              <Label layoutX="188.0" layoutY="19.0" text="DepartmentID:">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Text fx:id="departmentID" layoutX="204.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" />
+                              <Text fx:id="idText1" layoutX="34.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requester's Name:">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="requestNameLabel" layoutX="43.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" />
+                              <Text fx:id="idText2" layoutX="189.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Due Date:">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="freezeBtn" layoutX="321.0" layoutY="620.0" mnemonicParsing="false" onAction="#freezeButtonClick" prefHeight="59.0" prefWidth="146.0" styleClass="warning" text="Freeze Treatment" />
+                              <HBox fx:id="stageProgressHBox" layoutX="26.0" layoutY="510.0" prefHeight="80.0" prefWidth="481.0">
+                                 <children>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fx:id="stage1" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" onMouseClicked="#evalButtonClick" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/stages/stage%20(1).png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fx:id="stage2" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" onMouseClicked="#decButtonClick" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/stages/stage%20(2).png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fx:id="stage3" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" onMouseClicked="#exeButtonClick" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/stages/stage%20(3).png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fx:id="stage4" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" onKeyPressed="#validButtonClick" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/stages/stage%20(4).png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fx:id="stage5" fitHeight="80.0" fitWidth="112.0" layoutX="5.0" onMouseClicked="#closureButtonClick" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/stages/stage%20(5).png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="btnDownloadFiles" layoutX="34.0" layoutY="456.0" mnemonicParsing="false" onAction="#DownloadFiles" text="Download Files" />
+                              <TextArea fx:id="supervisorRemarks" layoutX="28.0" layoutY="449.0" prefHeight="151.0" prefWidth="508.0" promptText="Please write your remarks" visible="false" wrapText="true" />
+                              <Button fx:id="updateRemarksBtn" disable="true" layoutX="86.0" layoutY="620.0" mnemonicParsing="false" onAction="#updateRemarksBtnClicked" prefHeight="59.0" prefWidth="153.0" styleClass="primary" text="Update Request" />
+                              <DatePicker fx:id="dueDateLabel" disable="true" editable="false" layoutX="189.0" layoutY="88.0" prefHeight="31.0" prefWidth="169.0" />
+                              <Button fx:id="btnIncharges" layoutX="394.0" layoutY="87.0" mnemonicParsing="false" onAction="#allocatePersonelButtonClick" prefHeight="32.0" prefWidth="153.0" text="Set In-charges" />
+                              <TextArea fx:id="wantedChangeText" editable="false" layoutX="36.0" layoutY="227.0" prefHeight="51.0" prefWidth="466.0" wrapText="true" />
+                              <Text layoutX="37.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wanted Change:" wrappingWidth="145.99999731127173">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Text>
+                              <TextArea fx:id="reasonText" editable="false" layoutX="36.0" layoutY="301.0" prefHeight="59.0" prefWidth="466.0" wrapText="true" />
+                              <Text layoutX="37.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason:" wrappingWidth="145.99999731127173">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="rightPane_Freezed" layoutY="510.0" prefHeight="200.0" prefWidth="579.0" style="-fx-background-color: #f2ffff;" visible="false">
+                           <children>
+                              <Pane layoutX="141.0" prefHeight="200.0" prefWidth="297.0">
+                                 <children>
+                                    <Text fill="#4799cf" layoutX="55.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The request is Suspended">
+                                       <font>
+                                          <Font size="19.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="97.0" fitWidth="87.0" layoutX="105.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/icons/icon_freezed.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="btnUnfreeze" layoutX="105.0" layoutY="148.0" mnemonicParsing="false" onAction="#unfreeze" prefHeight="38.0" prefWidth="87.0" styleClass="bg_color4" text="UnFreeze" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="rightPane_Init" prefHeight="710.0" prefWidth="579.0" visible="false">
+                           <children>
+                              <Text fx:id="custom_msg1" layoutX="35.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This Request Should be Initialized" textAlignment="CENTER" wrappingWidth="508.2119140625">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="btnInit" layoutX="236.0" layoutY="379.0" mnemonicParsing="false" onAction="#allocatePersonelButtonClick" prefHeight="31.0" prefWidth="107.0" styleClass="primary" text="Init Request" />
+                           </children>
+                        </AnchorPane>
+                        <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="533.0" layoutY="12.0" onMouseClicked="#refrshBtn" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons/icon_refresh.png" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="msg" fill="#0e2eff" layoutX="19.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" visible="false">
+                           <font>
+                              <Font name="System Bold" size="38.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </children>
+</Pane>

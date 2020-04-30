@@ -1,0 +1,71 @@
+
+
+
+text_logoColor{
+	-fx-fill :  #B2DBBF;
+}
+
+.bg_menu_color{
+	-fx-background-color :  #264653;
+
+}
+.bg_menu_item{
+	-fx-background-color :  #264653;
+}
+.bg_menu_item:hover{
+	-fx-background-color :  #24434f;
+}
+
+.bg_color1{
+	-fx-background-color :  #264653;
+}
+.bg_color2{
+	-fx-background-color :  #455054;
+}
+.bg_color3{
+	-fx-background-color :  #2A9D8F;
+}
+.bg_color4{
+	-fx-background-color :  #E9C46A;
+}
+.bg_color5{
+	-fx-background-color :  #F4A261;
+}
+.bg_color6{
+	-fx-background-color :  #E76F51;
+}
+.bg_currentPage{
+	-fx-background-color :  #1b4859;
+}
+.bg_hover{
+	-fx-background-color :  #24434f;
+}
+
+.roundedRect {
+    -fx-background-radius: 25.0 25.0 25.0 25.0;
+    -fx-border-radius: 25.0 25.0 25.0 25.0;
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.2) , 50, 0.0 , 0 , 0 );
+}
+
+.text-field {
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0 ;
+    -fx-background-radius: 0.0 ;
+	 -fx-prompt-text-fill: #a8a8a8;
+
+	 }
+
+.text-field:focused {
+    -fx-background-color: -fx-focus-color, -fx-background ;
+}
+.text-field:empty {
+
+    -fx-alignment: center ;
+}
+
+.button{
+	-fx-background-insets: 0;
+	-fx-background-radius: 25.0 25.0 25.0 25.0;
+    -fx-border-radius: 25.0 25.0 25.0 25.0;
+
+}

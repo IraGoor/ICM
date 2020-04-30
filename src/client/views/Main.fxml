@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="borderPane" maxHeight="800" maxWidth="1280" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1276.0" stylesheets="@css/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.mainController">
+   <left>
+      <VBox prefHeight="800.0" prefWidth="280.0" styleClass="bg_menu_color" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="118.0" prefWidth="280.0">
+               <children>
+                  <Text fx:id="text_hello" layoutX="9.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #B2DBBF;" text="Hello, name" textAlignment="CENTER" wrappingWidth="260.26953125">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane onMouseClicked="#logout" prefHeight="113.0" prefWidth="280.0" style="-fx-background-color: #455054;">
+               <children>
+                  <Text fill="WHITE" layoutX="56.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disconnect">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+            </Pane>
+            <Pane fx:id="pHome" onMouseClicked="#gotoHome" prefHeight="200.0" prefWidth="200.0" styleClass="bg_menu_item">
+               <children>
+                  <ImageView fitHeight="65.0" fitWidth="83.0" layoutX="99.0" layoutY="14.0" onMouseClicked="#gotoHome">
+                     <image>
+                        <Image url="@img/icons/icon_home.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="102.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="p2" onMouseClicked="#gotoNewRequest" prefHeight="200.0" prefWidth="200.0" styleClass="bg_menu_item">
+               <children>
+                  <ImageView fitHeight="85.0" fitWidth="111.0" layoutX="85.0" layoutY="2.0" onMouseClicked="#gotoNewRequest">
+                     <image>
+                        <Image url="@img/icons/icon_newRequest.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="96.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Request">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="p3" onMouseClicked="#goToViewRequest" prefHeight="200.0" prefWidth="200.0" styleClass="bg_menu_item">
+               <children>
+                  <ImageView fitHeight="84.0" fitWidth="104.0" layoutX="90.0" layoutY="8.0" onMouseClicked="#goToViewRequest">
+                     <image>
+                        <Image url="@img/icons/icon_myRequest.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="98.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Request">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
+            <Pane fx:id="p4" onMouseClicked="#gotoRequestTreatment" prefHeight="200.0" prefWidth="200.0" styleClass="bg_menu_item">
+               <children>
+                  <ImageView fitHeight="78.0" fitWidth="102.0" layoutX="89.0" layoutY="6.0" onMouseClicked="#gotoRequestTreatment">
+                     <image>
+                        <Image url="@img/icons/icon_requestTreatment.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="73.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Request Treatment">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
+            <Pane fx:id="p5" onMouseClicked="#goToStats" prefHeight="200.0" prefWidth="200.0" styleClass="bg_menu_item">
+               <children>
+                  <ImageView fitHeight="82.0" fitWidth="103.0" layoutX="89.0" layoutY="7.0" onMouseClicked="#goToStats">
+                     <image>
+                        <Image url="@img/icons/icon_stats.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="113.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reports">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="p6" onMouseClicked="#goToManager" prefHeight="200.0" prefWidth="200.0" styleClass="bg_menu_item">
+               <children>
+                  <ImageView fitHeight="77.0" fitWidth="98.0" layoutX="91.0" layoutY="12.0">
+                     <image>
+                        <Image url="@img/icons/icon_management.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="75.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Management">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="90.0" prefWidth="1280.0" styleClass="bg_color2" BorderPane.alignment="CENTER">
+         <children>
+            <Pane onMouseClicked="#gotoHome" prefWidth="280.0" styleClass="bg_color1">
+               <children>
+                  <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="40.0" layoutY="11.0" onMouseClicked="#gotoHome">
+                     <image>
+                        <Image url="@img/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="100.0" prefWidth="999.0">
+               <children>
+                  <VBox layoutY="1.0" />
+                  <Text fx:id="pageTitle" fill="WHITE" layoutX="21.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
